@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_Consulting_MIS_4200_Project.DAL;
 using Centric_Consulting_MIS_4200_Project.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Centric_Consulting_MIS_4200_Project.Controllers
 {
@@ -51,7 +52,9 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                profile.PID = Guid.NewGuid();
+                Guid PID;
+                Guid.TryParse(User.Identity.GetUserId(), out PID);
+                profile.PID = PID;
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
