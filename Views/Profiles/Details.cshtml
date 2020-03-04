@@ -1,0 +1,74 @@
+﻿@model Centric_Consulting_MIS_4200_Project.Models.Profile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primaryOfficeLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primaryOfficeLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jobTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
