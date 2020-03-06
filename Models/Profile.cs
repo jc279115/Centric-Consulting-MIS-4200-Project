@@ -25,8 +25,7 @@ namespace Centric_Consulting_MIS_4200_Project.Models
         public string email { get; set; }
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^(\(\d{3}\) |/d{3}-\d{3}-\d{4}$",
-            ErrorMessage = "Phone number must be in the format (xxx) xxx-xxxx or xxx-xxx-xxxx")]
+        [RegularExpression(@"^(\(\d{3}\) |\d{3}-)\d{3}-\d{4}$", ErrorMessage = "Phone number must be in the format (xxx) xxx-xxxx or xxx-xxx-xxxx")]
         public string phoneNumber { get; set; }
         [Display(Name = "Department")]
         [Required(ErrorMessage = "Your department name is required.")]
