@@ -17,10 +17,31 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: Profiles
-        public ActionResult Index()
-        {
-            return View(db.Profiles.ToList());
-        }
+        public ActionResult Index(string searchString)
+
+ {
+var testusers = from u in db.Profiles select u;
+
+         if (!String.IsNullOrEmpty(searchString))
+ {
+
+ testusers = testusers.Where(u =>
+
+u.lastName.Contains(searchString)
+
+|| u.firstName.Contains(searchString));
+
+// if here, users were found so view them
+
+ return View(testusers.ToList());
+
+         }
+
+     return View(db.Profiles.ToList());
+
+     }
+
+ 
 
         // GET: Profiles/Details/5
         public ActionResult Details(Guid? id)
