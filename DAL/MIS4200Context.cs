@@ -16,5 +16,6 @@ namespace Centric_Consulting_MIS_4200_Project.DAL
 
         public DbSet <Profile> Profiles { get; set; }
 
+        public System.Data.Entity.DbSet<Centric_Consulting_MIS_4200_Project.Models.Leaderboard> Leaderboards { get; set; }
     }
 }

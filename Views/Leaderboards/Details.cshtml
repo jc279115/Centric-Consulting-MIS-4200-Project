@@ -1,0 +1,50 @@
+﻿@model Centric_Consulting_MIS_4200_Project.Models.Leaderboard
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Leaderboard</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.award)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.award)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
