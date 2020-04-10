@@ -35,13 +35,16 @@ namespace Centric_Consulting_MIS_4200_Project.Models
 
         public enum CoreValue
         {
-            Excellence = 1,
-            Integrity = 1,
-            Stewardship = 1,
-            Culture = 1,
-            Passion = 1,
-            Innovative = 1,
-            Balanced = 1
+            // Change these to Centric Core Values
+            /*
+            Commit to Delivery Excellence = 1,
+            Embrace Integrity and Openness = 1,
+            Practice Responsible Stewardship = 1,
+            Invest in an Exceptional Culture = 1,
+            Ignite Passion for the Greater Good = 1,
+            Strive to Innovate = 1,
+            Live a Balanced Life = 1
+            */
         }
     }
 }
