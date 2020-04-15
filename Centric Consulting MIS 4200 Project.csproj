@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaderboardsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NominationPagesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="DAL\MIS4200Context.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,6 +182,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Leaderboard.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NominationPage.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -251,6 +253,11 @@
     <Content Include="Views\Leaderboards\Details.cshtml" />
     <Content Include="Views\Leaderboards\Edit.cshtml" />
     <Content Include="Views\Leaderboards\Index.cshtml" />
+    <Content Include="Views\NominationPages\Create.cshtml" />
+    <Content Include="Views\NominationPages\Delete.cshtml" />
+    <Content Include="Views\NominationPages\Details.cshtml" />
+    <Content Include="Views\NominationPages\Edit.cshtml" />
+    <Content Include="Views\NominationPages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

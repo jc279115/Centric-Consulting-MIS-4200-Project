@@ -15,7 +15,7 @@ namespace Centric_Consulting_MIS_4200_Project.Models
         public string lastName { get; set; }
 
         [Key]
-        public Guid PID { get; set; }
+        public System.Guid PID { get; set; }
         
 
         [ForeignKey(name: "PID")]
@@ -26,25 +26,6 @@ namespace Centric_Consulting_MIS_4200_Project.Models
         [Display(Name = "Date")]
 
         public DateTime Date { get; set; }
-
-        [Required]
-
-        [Display(Name = "Core Value")]
-
-        public CoreValue award { get; set; }
-
-        public enum CoreValue
-        {
-            // Change these to Centric Core Values
-            /*
-            Commit to Delivery Excellence = 1,
-            Embrace Integrity and Openness = 1,
-            Practice Responsible Stewardship = 1,
-            Invest in an Exceptional Culture = 1,
-            Ignite Passion for the Greater Good = 1,
-            Strive to Innovate = 1,
-            Live a Balanced Life = 1
-            */
+  
         }
     }
-}
