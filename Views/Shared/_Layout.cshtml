@@ -26,22 +26,18 @@
                     <li>@Html.ActionLink("Company Directory", "Contact", "Home")</li>
                 </ul>
 
-                    @*@{
+                @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
 
-                        using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
-
-                        {
-<ul>
-                            <li>
-                                Find by name: @Html.TextBox("searchString")
-                                <input type="submit" value="Search" />
-                            </li>
+                {
+                <ul>
+                    <li>
+                        Find by name: @Html.TextBox("searchString")
+                        <input type="submit" value="Search" />
+                    </li>
                 </ul>
-                        }
-                    }*@
+                }
 
-                
-                @*@Html.Partial("_LoginPartial")*@
+                @Html.Partial("_LoginPartial")
 
             </div>
         </div>
