@@ -49,7 +49,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PID,lastName,Date,award")] Leaderboard leaderboard)
+        public ActionResult Create([Bind(Include = "PID,lastName,Date")] Leaderboard leaderboard)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PID,lastName,Date,award")] Leaderboard leaderboard)
+        public ActionResult Edit([Bind(Include = "PID,lastName,Date")] Leaderboard leaderboard)
         {
             if (ModelState.IsValid)
             {

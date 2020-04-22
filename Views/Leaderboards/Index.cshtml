@@ -8,10 +8,6 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
-    <li>
-        @Html.TextBox("searchString")
-        <input type="submit" value="Search" />
-     </li>
 </p>
 <table class="table">
     <tr>
@@ -23,9 +19,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.award)
         </th>
         <th></th>
     </tr>
@@ -40,9 +33,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.award)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PID }) |

@@ -248,16 +248,16 @@
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
-    <Content Include="Views\Leaderboards\Create.cshtml" />
-    <Content Include="Views\Leaderboards\Delete.cshtml" />
-    <Content Include="Views\Leaderboards\Details.cshtml" />
-    <Content Include="Views\Leaderboards\Edit.cshtml" />
-    <Content Include="Views\Leaderboards\Index.cshtml" />
     <Content Include="Views\NominationPages\Create.cshtml" />
     <Content Include="Views\NominationPages\Delete.cshtml" />
     <Content Include="Views\NominationPages\Details.cshtml" />
     <Content Include="Views\NominationPages\Edit.cshtml" />
     <Content Include="Views\NominationPages\Index.cshtml" />
+    <Content Include="Views\Leaderboards\Create.cshtml" />
+    <Content Include="Views\Leaderboards\Delete.cshtml" />
+    <Content Include="Views\Leaderboards\Details.cshtml" />
+    <Content Include="Views\Leaderboards\Edit.cshtml" />
+    <Content Include="Views\Leaderboards\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
