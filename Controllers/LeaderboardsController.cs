@@ -16,6 +16,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: Leaderboards
+        [Authorize]
         public ActionResult Index()
         {
             var leaderboards = db.Leaderboards.Include(l => l.Profile);
@@ -23,6 +24,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         }
 
         // GET: Leaderboards/Details/5
+        [Authorize]
         public ActionResult Details(Guid? id)
         {
             if (id == null)

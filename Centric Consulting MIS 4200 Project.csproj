@@ -258,6 +258,7 @@
     <Content Include="Views\Leaderboards\Details.cshtml" />
     <Content Include="Views\Leaderboards\Edit.cshtml" />
     <Content Include="Views\Leaderboards\Index.cshtml" />
+    <Content Include="Views\Profiles\NotAuthenticated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

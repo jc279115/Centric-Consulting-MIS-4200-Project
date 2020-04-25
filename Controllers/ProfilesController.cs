@@ -44,6 +44,7 @@ u.lastName.Contains(searchString)
  
 
         // GET: Profiles/Details/5
+        [Authorize]
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -85,18 +86,28 @@ u.lastName.Contains(searchString)
         }
 
         // GET: Profiles/Edit/5
+        [Authorize]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Profile user = db.Profiles.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (user.PID == memberID)
+            {
+                return View(user);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // POST: Profiles/Edit/5
@@ -116,18 +127,28 @@ u.lastName.Contains(searchString)
         }
 
         // GET: Profiles/Delete/5
+        [Authorize]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Profile user = db.Profiles.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (user.PID == memberID)
+            {
+                return View(user);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // POST: Profiles/Delete/5
