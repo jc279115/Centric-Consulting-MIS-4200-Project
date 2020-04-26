@@ -20,7 +20,7 @@
                 @Html.ActionLink("Centric Consulting", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
 
-            <div class="navbar-collapse collapse">
+            <div class="navbar-left" style="margin-top:8px;">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Leaderboard", "Index", "Leaderboards")</li>
@@ -30,13 +30,14 @@
                 @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
 
                 {
-                <ul>
-                    <li>
-                        Find by name: @Html.TextBox("searchString")
-                        <input type="submit" value="Search" />
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            Find by name: @Html.TextBox("searchString")
+                            <input type="submit" value="Search" />
+                        </li>
+                    </ul>
                 }
+            </div>
 
                 @Html.Partial("_LoginPartial")
 

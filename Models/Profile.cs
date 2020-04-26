@@ -20,7 +20,6 @@ namespace Centric_Consulting_MIS_4200_Project.Models
         public string lastName { get; set; }
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "Your email is required.")]
         [StringLength(99)]
         public string email { get; set; }
         [Display(Name = "Phone Number")]

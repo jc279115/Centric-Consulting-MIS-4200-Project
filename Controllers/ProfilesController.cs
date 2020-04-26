@@ -70,12 +70,13 @@ u.lastName.Contains(searchString)
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PID,firstName,lastName,email,phoneNumber,department,primaryOfficeLocation,jobTitle")] Profile profile)
+        public ActionResult Create([Bind(Include = "PID,firstName,lastName,phoneNumber,department,primaryOfficeLocation,jobTitle")] Profile profile)
         {
             if (ModelState.IsValid)
             {
                 Guid PID;
                 Guid.TryParse(User.Identity.GetUserId(), out PID);
+                profile.email = User.Identity.Name;
                 profile.PID = PID;
                 db.Profiles.Add(profile);
                 db.SaveChanges();
@@ -126,7 +127,7 @@ u.lastName.Contains(searchString)
             return View(profile);
         }
 
-        // GET: Profiles/Delete/5
+        //GET: Profiles/Delete/5
         [Authorize]
         public ActionResult Delete(Guid? id)
         {
@@ -151,7 +152,7 @@ u.lastName.Contains(searchString)
             }
         }
 
-        // POST: Profiles/Delete/5
+        //POST: Profiles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
