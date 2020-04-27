@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Leaderboard", "Index", "Leaderboards")</li>
-                    <li>@Html.ActionLink("Company Directory", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Directory", "Contact", "Home")</li>
                 </ul>
 
                 @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
@@ -45,6 +45,7 @@
         </div>
     </div>
     <div class="container body-content">
+        <br />
         @RenderBody()
         <hr />
         <footer>

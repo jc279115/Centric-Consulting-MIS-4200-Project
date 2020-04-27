@@ -9,35 +9,45 @@
         <ul class="nav navbar-nav navbar-right">
             <li>
                 @{
+                    var userName = "";
+                    var loggedInUserID = "";
+                    try
+                    {
 
-                    var userID = User.Identity.GetUserName(); // get the email of the user
 
-                    // the next line is YOUR context, not mine!
 
-                    MIS4200Context db = new Centric_Consulting_MIS_4200_Project.DAL.MIS4200Context();
+                        var userID = User.Identity.GetUserName(); // get the email of the user
 
-                    // get the name of the logged in user
+                        // the next line is YOUR context, not mine!
 
-                    var userName = db.Profiles.Where(n => n.email == userID).FirstOrDefault().firstName;
+                        MIS4200Context db = new Centric_Consulting_MIS_4200_Project.DAL.MIS4200Context();
 
-                    // get the ID of the logged in user
+                        // get the name of the logged in user
 
-                    var loggedInUserID = User.Identity.GetUserId();
+                        userName = db.Profiles.Where(n => n.email == userID).FirstOrDefault().firstName;
 
-                }
+                        // get the ID of the logged in user
 
-                @Html.ActionLink("Hello " + userName + "!", "Details", "Profiles", new { id = loggedInUserID }, null)
+                        loggedInUserID = User.Identity.GetUserId();
+
+                    }
+                    catch (Exception)
+                    {
+                        userName = User.Identity.GetUserName();
+
+
+                    }
+
+
+                    @Html.ActionLink("Hello " + userName + "!", "Details", "Profiles", new { id = loggedInUserID }, null)
+                    }
 
 
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
 
-        @*@using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
-        {
-            <span>Find by name: </span>@Html.TextBox("searchString")
-            <input type="submit" value="Search" />
-        }@*@
+     
     }
 }
 
