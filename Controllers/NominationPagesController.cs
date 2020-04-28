@@ -43,8 +43,9 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         {
             string PID = User.Identity.GetUserId();
             SelectList profiles = new SelectList(db.Profiles, "PID", "fullName");
-            profiles = new SelectList(profiles.Where(x => x.Value != PID).ToList(), "Value", "Text");
-            ViewBag.PID = new SelectList(db.Profiles, "PID", "fullName");
+            //profiles = new SelectList(profiles.Where(x => x.Value != PID).ToList(), "Value", "Text");
+            ViewBag.recognizor = new SelectList(db.Profiles, "PID", "fullName");
+            ViewBag.recognized = new SelectList(db.Profiles, "PID", "fullName");
             //var profiles = db.Profiles.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
             return View();
         }
@@ -54,10 +55,11 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PID,award,recognizor,recognized,recognizationDate")] NominationPage nominationPage)
+        public ActionResult Create([Bind(Include = "PID,award,recognizor,recognized")] NominationPage nominationPage)
         {
             if (ModelState.IsValid)
             {
+                nominationPage.recognizationDate = DateTime.Now;
                 db.NominationPages.Add(nominationPage);
                 db.SaveChanges();
                 return RedirectToAction("Index");

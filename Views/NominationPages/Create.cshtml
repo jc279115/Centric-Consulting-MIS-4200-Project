@@ -28,7 +28,7 @@
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.PID, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.recognizor, "", new { @class = "text-danger" })
-                @Html.DropDownList("PID", (SelectList)ViewBag.PID, "Please select a name", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("recognizor", (SelectList)ViewBag.PID, "Please select a name", htmlAttributes: new { @class = "form-control" })
                 
             </div>
         </div>
@@ -38,18 +38,18 @@
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.PID, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.recognized, "", new { @class = "text-danger" })
-                @Html.DropDownList("PID", (SelectList)ViewBag.PID, "Please select a name", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("recognized", (SelectList)ViewBag.PID, "Please select a name", htmlAttributes: new { @class = "form-control" })
 
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.recognizationDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.recognizationDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.recognizationDate, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
