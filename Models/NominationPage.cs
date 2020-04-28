@@ -9,15 +9,18 @@ namespace Centric_Consulting_MIS_4200_Project.Models
 {
     public class NominationPage
     {
-       [Key]
+        [Key]
         public int PID { get; set; }
-        [Display(Name = "Core value recognized")]
+
+        [Display(Name = "Core Value Recognized")]
         public CoreValue award { get; set; }
-        [Display(Name = "Person giving the recognition")]
+
+        [Display(Name = "Nominated By")]
         public System.Guid recognizor { get; set; }
-        [Display(Name = "Person receiving the recognition")]
+
+        [Display(Name = "Nominee")]
         public System.Guid recognized { get; set; }
-        [Display(Name = "Date recognition given")]
+        [Display(Name = "Date Recognition Given")]
         public DateTime recognizationDate { get; set; }
         public enum CoreValue
         {

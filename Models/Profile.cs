@@ -18,6 +18,9 @@ namespace Centric_Consulting_MIS_4200_Project.Models
         [Required(ErrorMessage = "Your last name is required.")]
         [StringLength(20)]
         public string lastName { get; set; }
+        
+        public string fullName { get { return lastName + ", " + firstName; } }
+
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress)]
         [StringLength(99)]

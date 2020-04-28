@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Centric_Consulting_MIS_4200_Project.DAL;
 using Centric_Consulting_MIS_4200_Project.Models;
 
@@ -37,8 +38,14 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         }
 
         // GET: NominationPages/Create
+        [Authorize]
         public ActionResult Create()
         {
+            string PID = User.Identity.GetUserId();
+            SelectList profiles = new SelectList(db.Profiles, "PID", "fullName");
+            profiles = new SelectList(profiles.Where(x => x.Value != PID).ToList(), "Value", "Text");
+            ViewBag.PID = new SelectList(db.Profiles, "PID", "fullName");
+            //var profiles = db.Profiles.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
             return View();
         }
 
@@ -60,6 +67,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         }
 
         // GET: NominationPages/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +99,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         }
 
         // GET: NominationPages/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
