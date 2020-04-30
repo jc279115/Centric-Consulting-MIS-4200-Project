@@ -8,65 +8,71 @@
 
 <div>
     <h4>Profile</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.firstName)
-        </dt>
+   
+        <ul class="dl-horizontal">
+            <dt>
+                <h4> @Html.DisplayNameFor(model => model.firstName) </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.firstName)
-        </dd>
+            <dd>
+                <h4> @Html.DisplayFor(model => model.firstName)</h4>
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.lastName)
-        </dt>
+            <dt>
+                <h4>  @Html.DisplayNameFor(model => model.lastName) </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.lastName)
-        </dd>
+            <dd>
+                <h4>  @Html.DisplayFor(model => model.lastName) </h4>
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+            <dt>
+                <h4>  @Html.DisplayNameFor(model => model.email)  </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+            <dd>
+                <h4> @Html.DisplayFor(model => model.email) </h4>
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.phoneNumber)
-        </dt>
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.phoneNumber) </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.phoneNumber)
-        </dd>
+            <dd>
+                <h4> @Html.DisplayFor(model => model.phoneNumber)</h4>
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.department)
-        </dt>
+            <dt>
+                <h4> @Html.DisplayNameFor(model => model.department) </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.department)
-        </dd>
+            <dd>
+                <h4>@Html.DisplayFor(model => model.department) </h4>
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.primaryOfficeLocation)
-        </dt>
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.primaryOfficeLocation) </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.primaryOfficeLocation)
-        </dd>
+            <dd>
+                <h4>@Html.DisplayFor(model => model.primaryOfficeLocation)</h4>
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.jobTitle)
-        </dt>
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.jobTitle) </h4>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.jobTitle)
-        </dd>
+            <dd>
+                <h4>@Html.DisplayFor(model => model.jobTitle)</h4>
+            </dd>
+            <p>
+                @Html.ActionLink("Edit Profile Page", "Edit", new { id = Model.PID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </ul>
+    
 
-    </dl>
+
     @{
         var total = ViewBag.total;
         var excellence = ViewBag.Excellence;
@@ -75,18 +81,16 @@
         var Balance = ViewBag.Balance;
         var Innovation = ViewBag.Innovation;
         var Lifestyle = ViewBag.Lifestyle;
-        <h2>Total recognitions received = @total</h2>
-        <h3>Excellence awards = @excellence</h3>
-        <h3>Integrity awards = @Integrity</h3>
-        <h3>Stewardship awards = @Stewardship</h3>
-        <h3>Balance awards = @Balance</h3>
-        <h3>Innovation awards = @Innovation</h3>
-        <h3>Lifestyle awards = @Lifestyle</h3>
+        <h4><ul> Total recognitions received = @total   </ul></h4>
+        <h4><ul> Excellence awards = @excellence </ul></h4>
+        <ul><h4>Integrity awards = @Integrity</h4>
+        <h4>Stewardship awards = @Stewardship</h4>
+        <h4>Balance awards = @Balance</h4>
+        <h4>Innovation awards = @Innovation</h4>
+        <h4>Lifestyle awards = @Lifestyle</h4> 
+        </ul>
     }
 
 
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
