@@ -57,6 +57,8 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PID,award,recognizor,recognized")] NominationPage nominationPage)
         {
+            
+
             if (ModelState.IsValid)
             {
                 nominationPage.recognizationDate = DateTime.Now;
@@ -64,6 +66,8 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            
 
             return View(nominationPage);
         }

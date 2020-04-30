@@ -36,7 +36,7 @@ namespace Centric_Consulting_MIS_4200_Project.Models
             [Display(Name = "Practice Responsible Stewardship")]
             Stewardship = 3,
             [Display(Name = "Invest in an Exceptional Culture")]
-            Innovate = 4,
+            Culture = 4,
             [Display(Name = "Ignite Passion for the Greater Good")]
             Balance = 5,
             [Display(Name = "Strive to Innovate")]

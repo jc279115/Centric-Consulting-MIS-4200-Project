@@ -47,6 +47,8 @@ u.lastName.Contains(searchString)
         [Authorize]
         public ActionResult Details(Guid? id)
         {
+            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -56,8 +58,36 @@ u.lastName.Contains(searchString)
             {
                 return HttpNotFound();
             }
+
+            var rec = db.NominationPages.Where(r => r.recognized == id);
+            var recList = rec.ToList();
+            ViewBag.rec = recList.ToList();
+            var totalCnt = recList.Count(); //counts all the recognitions for that person
+            var rec1Cnt = recList.Where(r => r.award == NominationPage.CoreValue.Excellence).Count();
+            // counts all the Excellence recognitions
+            // notice how the Enum values are references, class.enum.value
+            // the next two lines show another way to do the same counting
+            var rec2Cnt = recList.Count(r => r.award == NominationPage.CoreValue.Integrity);
+            var rec3Cnt = recList.Count(r => r.award == NominationPage.CoreValue.Stewardship);
+            var rec4Cnt = recList.Count(r => r.award == NominationPage.CoreValue.Culture);
+            var rec5Cnt = recList.Count(r => r.award == NominationPage.CoreValue.Balance);
+            var rec6Cnt = recList.Count(r => r.award == NominationPage.CoreValue.Innovation);
+            var rec7Cnt = recList.Count(r => r.award == NominationPage.CoreValue.Lifestyle);
+
+            // copy the values into the ViewBag
+            ViewBag.total = totalCnt;
+            ViewBag.Excellence = rec1Cnt;
+            ViewBag.Integrity = rec2Cnt;
+            ViewBag.Stewardship = rec3Cnt;
+            ViewBag.Culture = rec4Cnt;
+            ViewBag.Balance = rec5Cnt;
+            ViewBag.Innovation = rec6Cnt;
+            ViewBag.Lifestyle = rec7Cnt;
+
             return View(profile);
         }
+
+
 
         // GET: Profiles/Create
         public ActionResult Create()
@@ -72,6 +102,8 @@ u.lastName.Contains(searchString)
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PID,firstName,lastName,phoneNumber,department,primaryOfficeLocation,jobTitle")] Profile profile)
         {
+
+
             if (ModelState.IsValid)
             {
                 Guid PID;
@@ -82,6 +114,7 @@ u.lastName.Contains(searchString)
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
 
             return View(profile);
         }
