@@ -27,18 +27,7 @@
                     <li>@Html.ActionLink("Directory", "Contact", "Home")</li>
                 </ul>
 
-                @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
-
-                {
-                    <ul>
-                        <content>
-                            Find by name: @Html.TextBox("searchString")
-                            <input type="submit" value="Search" />
-                        </content>
-                           
-                        
-                    </ul>
-                }
+               
             </div>
 
                 @Html.Partial("_LoginPartial")
