@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Net.Mail;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Centric_Consulting_MIS_4200_Project.DAL;
@@ -44,10 +45,8 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         {
             string PID = User.Identity.GetUserId();
             SelectList profiles = new SelectList(db.Profiles, "PID", "fullName");
-            //profiles = new SelectList(profiles.Where(x => x.Value != PID).ToList(), "Value", "Text");
             ViewBag.recognizor = new SelectList(db.Profiles, "PID", "fullName");
             ViewBag.recognized = new SelectList(db.Profiles, "PID", "fullName");
-            //var profiles = db.Profiles.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
             return View();
         }
 
@@ -68,7 +67,38 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            
+            SmtpClient myClient = new SmtpClient();
+            // the following line has to contain the email address and password of someone
+            // authorized to use the email server (you will need a valid Ohio account/password
+            // for this to work)
+            myClient.Credentials = new NetworkCredential("AuthorizedUser", "UserPassword");
+            MailMessage myMessage = new MailMessage();
+            // the syntax here is email address, username (that will appear in the email)
+            MailAddress from = new MailAddress("jc279115@ohio.edu", "SysAdmin");
+            myMessage.From = from;
+            myMessage.Subject = "Centric Nomination";
+            // the body of the email is hard coded here but could be dynamically created using data
+            // from the model- see the note at the end of this document
+            myMessage.Body = "One of your colleges has nominated you! ";
+            myMessage.Body += "Return to your Centric account to view this nomination!";
+            try
+            {
+                myClient.Send(myMessage);
+                TempData["mailError"] = "";
+            }
+            catch (Exception ex)
+            {
+                // this captures an Exception and allows you to display the message in the View
+                TempData["mailError"] = ex.Message;
+                return View("mailError");
+            }// first, the customer found in the order is used to locate the customer record
+            var profile = db.Profiles.Find(nominationPage.recognized);
+            // then extract the email address from the customer record
+            var nominateEmail = profile.email;
+            // finally, add the email address to the “To” list
+            myMessage.To.Add(nominateEmail);
+            // note: it is possible to add more than one email address to the To list
+            // it is also possible to add CC addresses
 
             return View(nominationPage);
         }

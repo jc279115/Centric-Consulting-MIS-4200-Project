@@ -260,6 +260,7 @@
     <Content Include="Views\Leaderboards\Edit.cshtml" />
     <Content Include="Views\Leaderboards\Index.cshtml" />
     <Content Include="Views\Profiles\NotAuthenticated.cshtml" />
+    <Content Include="Views\NominationPages\mailError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
