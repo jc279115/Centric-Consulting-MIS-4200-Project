@@ -15,7 +15,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
     public class ProfilesController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
-
+        [Authorize]
         // GET: Profiles
         public ActionResult Index(string searchString)
 

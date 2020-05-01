@@ -4,77 +4,81 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="color:rebeccapurple">Centric Employees</h2>
 @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
 
 {
-    <ul>
+    
         <content>
             Find by name: @Html.TextBox("searchString")
             <input type="submit" value="Search" />
         </content>
 
 
-    </ul>
+    
 }
-
+<br />
 
 <table class="table">
     <tr>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.firstName)
         </th>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.lastName)
         </th>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.email)
         </th>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.phoneNumber)
         </th>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.department)
         </th>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.primaryOfficeLocation)
         </th>
-        <th>
+        <th style="color:rebeccapurple">
             @Html.DisplayNameFor(model => model.jobTitle)
+        </th>
+        <th style="color:rebeccapurple">
+            Total Points
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.department)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.primaryOfficeLocation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.jobTitle)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PID })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.firstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.phoneNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.department)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.primaryOfficeLocation)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.jobTitle)
+    </td>
+    <td>
+   
+        @Html.ActionLink("Details", "Details", new { id = item.PID })
+        
+    </td>
+
+</tr>
     }
 
 </table>
