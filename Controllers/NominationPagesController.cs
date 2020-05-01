@@ -92,7 +92,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
                 TempData["mailError"] = ex.Message;
                 return View("mailError");
             }// first, the customer found in the order is used to locate the customer record
-            var profile = db.Profiles.Find(nominationPage.nominatee);
+            var profile = db.Profiles.Find(nominationPage.recognized);
             // then extract the email address from the customer record
             var nominateEmail = profile.email;
             // finally, add the email address to the “To” list
