@@ -1,7 +1,20 @@
 ﻿
-@{
+@*@{
     ViewBag.Title = "mailError";
 }
 
-<h2>mailError</h2>
+<h2>Email Test Results</h2>
+@{
+    if (TempData["mailError"] != null && TempData["mailError"] != "")
+    {
+        <h3>
+            The following error occurred while trying to send the email message:
+            @TempData["mailError"].ToString()
+        </h3>
+
+        else
+        { 
+
+        }
+    }*@
 
