@@ -17,6 +17,7 @@ namespace Centric_Consulting_MIS_4200_Project.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: NominationPages
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.NominationPages.ToList());
